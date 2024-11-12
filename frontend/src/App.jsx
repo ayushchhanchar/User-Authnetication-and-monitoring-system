@@ -1,16 +1,19 @@
 // frontend/src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {Route, BrowserRouter, Routes } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import AdminDashboard from './pages/AdminDashboard';
+import RegisterForm from './components/RegisterForm';
 
 const App = () => (
-    <Router>
-        <Switch>
-            <Route path="/login" component={LoginForm} />
-            <Route path="/admin" component={AdminDashboard} />
-        </Switch>
-    </Router>
+    <BrowserRouter>
+        <Routes>
+            <Route path="/login" element={<LoginForm />} />
+            <Route path='/register' element={<RegisterForm />} />
+            <Route path="/admin" element={<AdminDashboard/>} />
+        </Routes>
+    </BrowserRouter>
+
 );
 
 export default App;

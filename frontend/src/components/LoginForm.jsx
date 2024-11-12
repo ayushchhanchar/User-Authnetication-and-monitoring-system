@@ -1,6 +1,6 @@
 // frontend/src/components/LoginForm.js
 import React, { useState } from 'react';
-import api from '../services/api';
+import axios from 'axios';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -9,7 +9,7 @@ const LoginForm = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await api.post('/auth/login', { username, password });
+            const { data } = await axios.post('http://localhost:5000/api/auth/login', { username, password });
             localStorage.setItem('token', data.token);
             alert('Login successful');
         } catch (error) {
